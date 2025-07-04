@@ -1,0 +1,261 @@
+.weather-widget {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  min-width: 280px;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.weather-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.weather-icon {
+  font-size: 1.2rem;
+  color: #667eea;
+}
+
+.weather-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.weather-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.weather-temp {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.weather-condition-icon {
+  font-size: 3rem;
+  color: #ffd700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.weather-description {
+  font-size: 1rem;
+  color: #666;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.weather-detail {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #666;
+}
+
+.weather-detail i {
+  width: 16px;
+  color: #667eea;
+}
+
+.weather-last-updated {
+  text-align: center;
+  padding: 0.5rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.last-updated {
+  font-size: 0.8rem;
+  color: #888;
+  font-style: italic;
+}
+
+.weather-loading {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 2rem 0;
+}
+
+.weather-loading i {
+  margin-right: 8px;
+}
+
+.weather-error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(255, 107, 107, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  margin-bottom: 1rem;
+}
+
+.weather-error i {
+  margin-right: 8px;
+}
+
+.weather-condition-icon.sunny {
+  color: #ffd700;
+}
+
+.weather-condition-icon.cloudy {
+  color: #87ceeb;
+}
+
+.weather-condition-icon.rainy {
+  color: #4682b4;
+}
+
+.weather-condition-icon.snowy {
+  color: #f0f8ff;
+}
+
+.weather-condition-icon.stormy {
+  color: #483d8b;
+}
+
+@media (max-width: 768px) {
+  .weather-widget {
+    position: static;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-widget {
+    padding: 1rem;
+    min-width: auto;
+  }
+
+  .weather-main {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .weather-temp {
+    font-size: 2rem;
+  }
+
+  .weather-condition-icon {
+    font-size: 2.5rem;
+  }
+
+  .weather-details {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+body.dark-theme .weather-widget,
+[data-theme="dark"] .weather-widget {
+  background: rgba(30, 30, 30, 0.95);
+  border: 1px solid #333;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .weather-icon,
+[data-theme="dark"] .weather-icon {
+  color: #4a9eff;
+}
+
+body.dark-theme .weather-title,
+body.dark-theme .weather-temp,
+[data-theme="dark"] .weather-title,
+[data-theme="dark"] .weather-temp {
+  color: #e1e1e1;
+}
+
+body.dark-theme .weather-location,
+body.dark-theme .weather-description,
+body.dark-theme .weather-detail,
+[data-theme="dark"] .weather-location,
+[data-theme="dark"] .weather-description,
+[data-theme="dark"] .weather-detail {
+  color: #b0b0b0;
+}
+
+body.dark-theme .weather-detail i,
+[data-theme="dark"] .weather-detail i {
+  color: #4a9eff;
+}
+
+body.dark-theme .weather-error,
+[data-theme="dark"] .weather-error {
+  background-color: rgba(255, 107, 107, 0.2);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  color: #ff9999;
+}
+
+body.dark-theme .weather-last-updated,
+[data-theme="dark"] .weather-last-updated {
+  border-top: 1px solid #333;
+}
+
+body.dark-theme .last-updated,
+[data-theme="dark"] .last-updated {
+  color: #888;
+}
+
+body.dark-theme .weather-loading,
+[data-theme="dark"] .weather-loading {
+  color: #b0b0b0;
+}
+
+body.dark-theme .weather-condition-icon.sunny,
+[data-theme="dark"] .weather-condition-icon.sunny {
+  color: #ffeb3b;
+}
+
+body.dark-theme .weather-condition-icon.cloudy,
+[data-theme="dark"] .weather-condition-icon.cloudy {
+  color: #90caf9;
+}
+
+body.dark-theme .weather-condition-icon.rainy,
+[data-theme="dark"] .weather-condition-icon.rainy {
+  color: #81c784;
+}
+
+body.dark-theme .weather-condition-icon.snowy,
+[data-theme="dark"] .weather-condition-icon.snowy {
+  color: #e3f2fd;
+}
+
+body.dark-theme .weather-condition-icon.stormy,
+[data-theme="dark"] .weather-condition-icon.stormy {
+  color: #9c27b0;
+}

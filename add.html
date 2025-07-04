@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>საგნის დამატება - StudyHub</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/add.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="js/add.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/theme.js" defer></script>
+  </head>
+  <body>
+       <header>
+      <div class="header-left">
+        <h1><a href="index.html" class="logo"><i class="fas fa-book" style="margin-right: 8px;"></i>StudyHub</a></h1>
+      </div>
+      <nav>
+        <button
+          class="burger"
+          id="burger"
+          aria-label="მენიუს გახსნა"
+          aria-expanded="false"
+        >
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="navigation">
+          <li><a href="index.html" aria-current="page">მთავარი</a></li>
+          <li><a href="add.html">საგნის დამატება</a></li>
+          <li><a href="subjects.html">ჩემი საგნები</a></li>
+          <li><a href="calendar.html">კალენდარი</a></li>
+        </ul>
+      </nav>
+      <button
+        id="theme-toggle"
+        aria-label="თემის შეცვლა"
+        title="ღამის/დღის რეჟიმი"
+      >
+        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+      </button>
+    </header>
+
+    <div
+      class="menu-overlay"
+      id="menu-overlay"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="menu-content">
+        <button class="close-overlay" aria-label="მენიუს დახურვა"><i class="fas fa-times"></i></button>
+        <nav role="navigation">
+          <ul>
+            <li><a href="index.html">მთავარი</a></li>
+            <li><a href="add.html">საგნის დამატება</a></li>
+            <li><a href="subjects.html">ჩემი საგნები</a></li>
+            <li><a href="calendar.html">კალენდარი</a></li>
+          </ul>
+        </nav>
+        <button
+          class="theme-toggle mobile-theme-toggle"
+          aria-label="თემის შეცვლა"
+        >
+          <span class="theme-icon"><i class="fas fa-moon"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <main>
+      <div class="page-header">
+        <h2><i class="fas fa-bullseye"></i> ახალი საგნის დამატება</h2>
+        <p>შექმენი შენი სპეციალური სასწავლო გეგმა</p>
+      </div>
+
+      <div class="form-container">
+        <form id="add-subject-form">
+          <div class="form-group">
+            <label for="subjectName"><i class="fas fa-book-open"></i> საგნის სახელი:</label>
+            <input
+              type="text"
+              id="subjectName"
+              name="subjectName"
+              required
+              placeholder="მაგ. მათემატიკა, ფიზიკა, ქიმია..."
+            />
+            <div class="input-hint">მიუთითე სწორი და მარტივი სახელი</div>
+          </div>
+
+          <div class="form-group">
+            <label for="subjectCategory"><i class="fas fa-tags"></i> კატეგორია:</label>
+            <select id="subjectCategory" name="subjectCategory" required>
+              <option value="" disabled selected>აირჩიეთ კატეგორია</option>
+              <option value="მთავარი"><i class="fas fa-graduation-cap"></i> მთავარი საგნები</option>
+              <option value="სკოლა"><i class="fas fa-school"></i> სკოლის საგნები</option>
+              <option value="უნივერსიტეტი"><i class="fas fa-university"></i> უნივერსიტეტი</option>
+              <option value="ენები"><i class="fas fa-globe"></i> უცხო ენები</option>
+              <option value="IT"><i class="fas fa-laptop-code"></i> IT/ინფორმატიკა</option>
+              <option value="ხელოვნება"><i class="fas fa-palette"></i> ხელოვნება</option>
+              <option value="სპორტი"><i class="fas fa-futbol"></i> სპორტი</option>
+              <option value="ბიზნესი"><i class="fas fa-briefcase"></i> ბიზნესი</option>
+              <option value="სხვა"><i class="fas fa-list"></i> სხვა</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="priority"><i class="fas fa-star"></i> პრიორიტეტი:</label>
+            <select id="priority" name="priority" required>
+              <option value="" disabled selected>აირჩიეთ პრიორიტეტი</option>
+              <option value="მაღალი"><i class="fas fa-circle" style="color: #ff4444;"></i> მაღალი</option>
+              <option value="საშუალო"><i class="fas fa-circle" style="color: #ffa500;"></i> საშუალო</option>
+              <option value="დაბალი"><i class="fas fa-circle" style="color: #4caf50;"></i> დაბალი</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="studyHours"><i class="fas fa-clock"></i> კვირაში სტუდიის საათები:</label>
+            <input
+              type="number"
+              id="studyHours"
+              name="studyHours"
+              min="1"
+              max="50"
+              placeholder="მაგ. 5"
+            />
+            <div class="input-hint">
+              რამდენ საათში გეგმავ ამ საგნის სწავლას კვირაში
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subjectDesc"><i class="fas fa-edit"></i> აღწერა:</label>
+            <textarea
+              id="subjectDesc"
+              name="subjectDesc"
+              placeholder="ჩაწერეთ მოკლე აღწერა, მიზნები, ან მნიშვნელოვანი დეტალები..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="tags"><i class="fas fa-tag"></i> ტეგები (არასავალდებულო):</label>
+            <input
+              type="text"
+              id="tags"
+              name="tags"
+              placeholder="მაგ. ალგებრა, გეომეტრია, ტრიგონომეტრია"
+            />
+            <div class="input-hint">გამოყავით მძიმით (,) სხვადასხვა ტეგები</div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-sparkles btn-icon"></i>
+              საგნის დამატება
+            </button>
+            <button type="button" class="reset-btn" id="reset-form">
+              <i class="fas fa-redo btn-icon"></i>
+              გაწმენდა
+            </button>
+          </div>
+
+          <div id="form-message" class="message"></div>
+        </form>
+      </div>
+
+      <div class="tips-section">
+        <h3><i class="fas fa-lightbulb"></i> რჩევები საგნის დასამატებლად:</h3>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-icon"><i class="fas fa-bullseye"></i></div>
+            <h4>კონკრეტული სახელი</h4>
+            <p>გამოიყენე მარტივი და გასაგები სახელი</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon"><i class="fas fa-clock"></i></div>
+            <h4>რეალისტური დრო</h4>
+            <p>დაგეგმე რეალისტური სტუდიის საათები</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon"><i class="fas fa-list-alt"></i></div>
+            <h4>დეტალური აღწერა</h4>
+            <p>ჩაწერე მიზნები და მნიშვნელოვანი დეტალები</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon"><i class="fas fa-tags"></i></div>
+            <h4>სწორი კატეგორია</h4>
+            <p>აირჩიე შესაბამისი კატეგორია ორგანიზებისთვის</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-preview" id="stats-preview">
+        <h3><i class="fas fa-chart-bar"></i> შენი სტატისტიკა:</h3>
+        <div class="stats-cards">
+          <div class="stat-card">
+            <div class="stat-number" id="total-subjects">0</div>
+            <div class="stat-label">სულ საგანი</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="total-hours">0</div>
+            <div class="stat-label">სულ საათი კვირაში</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="most-category">-</div>
+            <div class="stat-label">ყველაზე პოპულარული</div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>StudyHub</h4>
+          <p>შენი სასწავლო პროცესის საუკეთესო მენეჯერი</p>
+        </div>
+        <div class="footer-section">
+          <h4>სწრაფი ბმულები</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">ჩვენს შესახებ</a></li>
+            <li><a href="help.html">დახმარება</a></li>
+            <li><a href="contact.html">კონტაქტი</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <p>&copy; 2025 StudyHub. ყველა უფლება დაცულია.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

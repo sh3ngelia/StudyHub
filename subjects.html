@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ჩემი საგნები - StudyHub</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/subjects.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="js/subjects.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/theme.js" defer></script>
+  </head>
+  <body>
+      <header>
+      <div class="header-left">
+        <h1><a href="index.html" class="logo"><i class="fas fa-book" style="margin-right: 8px;"></i>StudyHub</a></h1>
+      </div>
+      <nav>
+        <button
+          class="burger"
+          id="burger"
+          aria-label="მენიუს გახსნა"
+          aria-expanded="false"
+        >
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="navigation">
+          <li><a href="index.html" aria-current="page">მთავარი</a></li>
+          <li><a href="add.html">საგნის დამატება</a></li>
+          <li><a href="subjects.html">ჩემი საგნები</a></li>
+          <li><a href="calendar.html">კალენდარი</a></li>
+        </ul>
+      </nav>
+      <button
+        id="theme-toggle"
+        aria-label="თემის შეცვლა"
+        title="ღამის/დღის რეჟიმი"
+      >
+        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+      </button>
+    </header>
+
+    <div
+      class="menu-overlay"
+      id="menu-overlay"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="menu-content">
+        <button class="close-overlay" aria-label="მენიუს დახურვა"><i class="fas fa-times"></i></button>
+        <nav role="navigation">
+          <ul>
+            <li><a href="index.html">მთავარი</a></li>
+            <li><a href="add.html">საგნის დამატება</a></li>
+            <li><a href="subjects.html">ჩემი საგნები</a></li>
+            <li><a href="calendar.html">კალენდარი</a></li>
+          </ul>
+        </nav>
+        <button
+          class="theme-toggle mobile-theme-toggle"
+          aria-label="თემის შეცვლა"
+        >
+          <span class="theme-icon"><i class="fas fa-moon"></i></span>
+        </button>
+      </div>
+    </div>
+    <main id="content" class="subjects-page">
+      <section>
+        <div class="page-header">
+          <h2><i class="fas fa-book-open"></i> ჩემი საგნები</h2>
+          <div class="stats-container">
+            <div class="stat-item">
+              <span class="stat-number" id="total-subjects">0</span>
+              <span class="stat-label">სულ საგანი</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" id="active-subjects">0</span>
+              <span class="stat-label">აქტიური</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls-container">
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-subjects"
+              placeholder="საგნის ძებნა..."
+              aria-label="საგნის ძებნა"
+            />
+            <button id="search-button" aria-label="ძებნა"><i class="fas fa-search"></i></button>
+            <button
+              id="clear-search"
+              aria-label="ძებნის გასუფთავება"
+              title="ძებნის გასუფთავება"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+
+          <div class="filter-sort-container">
+            <select id="sort-subjects" aria-label="დალაგება">
+              <option value="name-asc">სახელით (ა-ჰ)</option>
+              <option value="name-desc">სახელით (ჰ-ა)</option>
+              <option value="date-new">ახალი პირველი</option>
+              <option value="date-old">ძველი პირველი</option>
+            </select>
+
+            <select id="filter-category" aria-label="კატეგორიით ფილტრაცია">
+              <option value="all">ყველა კატეგორია</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="subjects-container">
+          <ul
+            id="subjects-list"
+            class="grid-view"
+            aria-live="polite"
+            aria-relevant="additions removals"
+          ></ul>
+        </div>
+
+        <div class="no-subjects-message" id="no-subjects" style="display: none">
+          <div class="empty-state">
+            <div class="empty-icon"><i class="fas fa-inbox"></i></div>
+            <h3>საგნები ვერ მოიძებნა</h3>
+            <p>სცადეთ სხვა საძიებო ტერმინი ან დაამატეთ ახალი საგანი</p>
+            <a href="add.html" class="add-subject-btn"><i class="fas fa-plus"></i> საგნის დამატება</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>StudyHub</h4>
+          <p>შენი სასწავლო პროცესის საუკეთესო მენეჯერი</p>
+        </div>
+        <div class="footer-section">
+          <h4>სწრაფი ბმულები</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">ჩვენს შესახებ</a></li>
+            <li><a href="help.html">დახმარება</a></li>
+            <li><a href="contact.html">კონტაქტი</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <p>&copy; 2025 StudyHub. ყველა უფლება დაცულია.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="subject-modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modal-subject-name"></h3>
+          <button class="close-modal" aria-label="მოდალის დახურვა"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+          <div class="subject-details">
+            <p><strong>კატეგორია:</strong> <span id="modal-category"></span></p>
+            <p>
+              <strong>შექმნის თარიღი:</strong> <span id="modal-date"></span>
+            </p>
+            <p><strong>აღწერა:</strong> <span id="modal-description"></span></p>
+          </div>
+          <div class="modal-actions">
+            <button id="delete-subject" class="btn-danger"><i class="fas fa-trash"></i> წაშლა</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

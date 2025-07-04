@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StudyHub - სასწავლო პროცესის მართვა</title>
+    <meta
+      name="description"
+      content="StudyHub - მართე შენი საგნები და დავალებები ერთ სივრცეში"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/calendar.css" />
+    <link rel="stylesheet" href="css/weather.css" />
+
+    <script src="js/calendar.js" defer></script>
+    <script src="js/weather.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+     <header>
+      <div class="header-left">
+        <h1><a href="index.html" class="logo"><i class="fas fa-book" style="margin-right: 8px;"></i>StudyHub</a></h1>
+      </div>
+      <nav>
+        <button
+          class="burger"
+          id="burger"
+          aria-label="მენიუს გახსნა"
+          aria-expanded="false"
+        >
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="navigation">
+          <li><a href="index.html" aria-current="page">მთავარი</a></li>
+          <li><a href="add.html">საგნის დამატება</a></li>
+          <li><a href="subjects.html">ჩემი საგნები</a></li>
+          <li><a href="calendar.html">კალენდარი</a></li>
+        </ul>
+      </nav>
+      <button
+        id="theme-toggle"
+        aria-label="თემის შეცვლა"
+        title="ღამის/დღის რეჟიმი"
+      >
+        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+      </button>
+    </header>
+
+    <div
+      class="menu-overlay"
+      id="menu-overlay"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="menu-content">
+        <button class="close-overlay" aria-label="მენიუს დახურვა"><i class="fas fa-times"></i></button>
+        <nav role="navigation">
+          <ul>
+            <li><a href="index.html">მთავარი</a></li>
+            <li><a href="add.html">საგნის დამატება</a></li>
+            <li><a href="subjects.html">ჩემი საგნები</a></li>
+            <li><a href="calendar.html">კალენდარი</a></li>
+          </ul>
+        </nav>
+        <button
+          class="theme-toggle mobile-theme-toggle"
+          aria-label="თემის შეცვლა"
+        >
+          <span class="theme-icon"><i class="fas fa-moon"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <main>
+      <div class="main-container">
+        <!-- Weather Widget -->
+        <div class="weather-widget" id="weatherWidget">
+          <div class="weather-header">
+            <i class="fas fa-cloud-sun weather-icon"></i>
+            <span class="weather-title">ამინდი</span>
+          </div>
+          <div class="weather-content" id="weatherContent">
+            <div class="weather-loading">
+              <i class="fas fa-spinner fa-spin"></i> იტვირთება...
+            </div>
+          </div>
+        </div>
+
+        <!-- Calendar Section -->
+        <section class="calendar-section">
+          <div class="calendar">
+            <div class="calendar-header">
+              <button id="prevMonth" aria-label="წინა თვე"><i class="fas fa-chevron-left"></i></button>
+              <div class="calendar-controls">
+                <span id="monthYear" class="month-year"></span>
+                <select id="yearSelector" aria-label="წლის არჩევა"></select>
+              </div>
+              <button id="nextMonth" aria-label="შემდეგი თვე"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="weekdays">
+              <div>კვ</div>
+              <div>ორ</div>
+              <div>სამ</div>
+              <div>ოთხ</div>
+              <div>ხუთ</div>
+              <div>პარ</div>
+              <div>შაბ</div>
+            </div>
+            <div class="days" id="daysContainer"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>StudyHub</h4>
+          <p>შენი სასწავლო პროცესის საუკეთესო მენეჯერი</p>
+        </div>
+        <div class="footer-section">
+          <h4>სწრაფი ბმულები</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">ჩვენს შესახებ</a></li>
+            <li><a href="help.html">დახმარება</a></li>
+            <li><a href="contact.html">კონტაქტი</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <p>&copy; 2025 StudyHub. ყველა უფლება დაცულია.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
