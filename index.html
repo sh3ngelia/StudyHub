@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StudyHub - სასწავლო პროცესის მართვა</title>
+    <meta
+      name="description"
+      content="StudyHub - მართე შენი საგნები და დავალებები ერთ სივრცეში"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cookie-consent.css" />
+    <script src="js/script.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/cookie-consent.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-left">
+        <h1>
+          <a href="index.html" class="logo"
+            ><i class="fas fa-book" style="margin-right: 8px"></i>StudyHub</a
+          >
+        </h1>
+      </div>
+      <nav>
+        <button
+          class="burger"
+          id="burger"
+          aria-label="მენიუს გახსნა"
+          aria-expanded="false"
+        >
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="navigation">
+          <li><a href="index.html" aria-current="page">მთავარი</a></li>
+          <li><a href="add.html">საგნის დამატება</a></li>
+          <li><a href="subjects.html">ჩემი საგნები</a></li>
+          <li><a href="calendar.html">კალენდარი</a></li>
+        </ul>
+      </nav>
+      <button
+        id="theme-toggle"
+        aria-label="თემის შეცვლა"
+        title="ღამის/დღის რეჟიმი"
+      >
+        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+      </button>
+    </header>
+
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+      <div class="menu-content">
+        <button class="close-overlay" aria-label="მენიუს დახურვა">
+          <i class="fas fa-times"></i>
+        </button>
+        <nav role="navigation">
+          <ul>
+            <li><a href="index.html">მთავარი</a></li>
+            <li><a href="add.html">საგნის დამატება</a></li>
+            <li><a href="subjects.html">ჩემი საგნები</a></li>
+            <li><a href="calendar.html">კალენდარი</a></li>
+          </ul>
+        </nav>
+        <button
+          class="theme-toggle mobile-theme-toggle"
+          aria-label="თემის შეცვლა"
+        >
+          <span class="theme-icon"><i class="fas fa-moon"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <main id="content">
+      <section class="hero">
+        <div id="slideContainer">
+          <div class="slide" style="background-image: url('images/study1.jpg')">
+            <div class="slide-overlay"></div>
+          </div>
+          <div class="slide" style="background-image: url('images/study2.jpg')">
+            <div class="slide-overlay"></div>
+          </div>
+          <div class="slide" style="background-image: url('images/study3.jpg')">
+            <div class="slide-overlay"></div>
+          </div>
+          <div class="slide" style="background-image: url('images/study4.jpg')">
+            <div class="slide-overlay"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="card feature-card">
+          <div class="card-icon"><i class="fa-solid fa-book"></i></div>
+          <h3>საგნების მართვა</h3>
+          <p>
+            დაამატე, ჩაასწორე ან წაშალე საგნები შენი გრაფიკის შესაბამისად.
+            თითოეული საგნისთვის დააყენე ინდივიდუალური პარამეტრები.
+          </p>
+        </div>
+        <div class="card feature-card">
+          <div class="card-icon"><i class="fas fa-bell"></i></div>
+          <h3>შეხსენებები</h3>
+          <p>
+            არ გამოგრჩეს ვადები - StudyHub შეგახსენებს ყველა მნიშვნელოვან თარიღს
+            და დავალებას.
+          </p>
+        </div>
+        <div class="card feature-card">
+          <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+          <h3>სტატისტიკა</h3>
+          <p>
+            დააკვირდი შენს პროგრესს ვიზუალურად და გაიგე სად გჭირდება
+            გაუმჯობესება.
+          </p>
+        </div>
+      </section>
+
+      <section class="dashboard">
+        <div class="dashboard-section daily-goals">
+          <h3>დღიური მიზნები</h3>
+          <div class="goals-container">
+            <ul id="daily-goals-list" class="goals-list"></ul>
+            <div class="goals-actions">
+              <button class="add-goal-btn" id="add-goal-btn">
+                <i class="fas fa-plus" style="margin-right: 5px"></i>ახალი
+                მიზნის დამატება
+              </button>
+              <button class="clear-all-btn" id="clear-all-goals-btn">
+                <i class="fas fa-trash" style="margin-right: 5px"></i>ყველაფრის
+                წაშლა
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-section progress-overview">
+          <h3>პროგრესის მიმოხილვა</h3>
+          <div class="progress-container">
+            <div id="progress-bar-container">
+              <div id="progress-bar"></div>
+            </div>
+            <p id="progress-text" class="progress-text"></p>
+            <div class="progress-details">
+              <span class="progress-detail">
+                <span class="progress-label">დასრულებული:</span>
+                <span id="completed-count">0</span>
+              </span>
+              <span class="progress-detail">
+                <span class="progress-label">სულ:</span>
+                <span id="total-count">0</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-section quick-actions">
+          <h3>სწრაფი მოქმედებები</h3>
+          <div class="quick-actions-grid">
+            <a href="add.html" class="quick-action-btn">
+              <span class="action-icon"><i class="fas fa-plus"></i></span>
+              <span class="action-text">საგნის დამატება</span>
+            </a>
+            <a href="subjects.html" class="quick-action-btn">
+              <span class="action-icon"
+                ><i class="fas fa-clipboard-list"></i
+              ></span>
+              <span class="action-text">ყველა საგანი</span>
+            </a>
+            <a href="calendar.html" class="quick-action-btn">
+              <span class="action-icon"
+                ><i class="fas fa-calendar-alt"></i
+              ></span>
+              <span class="action-text">კალენდარი</span>
+            </a>
+            <button class="quick-action-btn" id="study-timer-btn">
+              <span class="action-icon"><i class="fas fa-clock"></i></span>
+              <span class="action-text">სწავლის ტაიმერი</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="motivational-quote">
+        <div class="quote-container">
+          <blockquote id="daily-quote">
+            <p>
+              "განათლება არის ყველაზე ძლიერი იარაღი, რომლითაც შეგიძლია შეცვალო
+              მსოფლიო."
+            </p>
+            <cite>- ნელსონ მანდელა</cite>
+          </blockquote>
+        </div>
+      </section>
+    </main>
+
+    <section class="contact-form" id="contact">
+      <div class="container">
+        <h3>დაგვიკავშირდი</h3>
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">სახელი</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">ელ. ფოსტა</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">შეტყობინება</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="agree" required />
+            <label for="agree">ვეთანხმები წესებს</label>
+          </div>
+          <button type="submit" class="submit-btn">გაგზავნა</button>
+        </form>
+        <p id="form-msg" class="form-message"></p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>StudyHub</h4>
+          <p>შენი სასწავლო პროცესის საუკეთესო მენეჯერი</p>
+        </div>
+        <div class="footer-section">
+          <h4>სწრაფი ბმულები</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">ჩვენს შესახებ</a></li>
+            <li><a href="help.html">დახმარება</a></li>
+            <li><a href="contact.html">კონტაქტი</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <p>&copy; 2025 StudyHub. ყველა უფლება დაცულია.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="study-timer-modal" class="modal" aria-hidden="true" role="dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>სწავლის ტაიმერი</h3>
+          <button class="modal-close" aria-label="მოდალის დახურვა">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="timer-display">
+            <span id="timer-minutes">25</span>:<span id="timer-seconds"
+              >00</span
+            >
+          </div>
+          <div class="timer-controls">
+            <button id="timer-start" class="timer-btn primary">დაწყება</button>
+            <button id="timer-pause" class="timer-btn secondary" disabled>
+              პაუზა
+            </button>
+            <button id="timer-reset" class="timer-btn">ხელახლა</button>
+          </div>
+          <div class="timer-settings">
+            <label for="timer-duration">ხანგრძლივობა (წუთებში):</label>
+            <input
+              type="number"
+              id="timer-duration"
+              min="1"
+              max="120"
+              value="25"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-content">
+        <div class="cookie-title"> <i class="fa-solid fa-cookie"></i> Cookie-ს გამოყენება</div>
+        <div class="cookie-text">
+          ვიყენებთ cookie-ებს საიტის ფუნქციონალურობისა და მომხმარებლის
+          გამოცდილების გასაუმჯობესებლად.
+        </div>
+      </div>
+      <div class="cookie-buttons">
+        <button class="cookie-btn btn-accept" onclick="acceptCookies()">
+          მიღება
+        </button>
+        <button class="cookie-btn btn-decline" onclick="declineCookies()">
+          უარყოფა
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
